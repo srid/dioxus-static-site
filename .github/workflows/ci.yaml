@@ -1,0 +1,23 @@
+name: "CI"
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  nix:
+    runs-on: ${{ matrix.system }}
+    strategy:
+      matrix:
+        system: [x86_64-linux, aarch64-darwin]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: om ci run --systems "${{ matrix.system }}" -- --show-trace
+      - name: Run static site generator
+        run: |
+          ls -l
+          nix run
+          ls -l
