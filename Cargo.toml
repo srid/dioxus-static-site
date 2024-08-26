@@ -3,6 +3,7 @@ name = "dioxus-static-site"
 version = "0.1.0"
 edition = "2021"
 publish = false
+description = "A static site generator with Dioxus"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
